@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-forest-900: #14281D;
+  --color-forest-800: #1B3828;
+  --color-forest-700: #264E38;
+  --color-forest-600: #33664A;
+  --color-moss-500: #5A8554;
+  --color-earth-100: #F3F1EC;
+  --color-earth-50: #FBFBF9;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: #1c1917;
+    background-color: #F7F8F4;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+

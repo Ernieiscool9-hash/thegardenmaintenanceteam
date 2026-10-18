@@ -1,0 +1,151 @@
+import React, { useId } from 'react';
+
+interface BusinessLogoProps {
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  className?: string;
+  showText?: boolean;
+  businessName?: string;
+}
+
+export const BusinessLogo: React.FC<BusinessLogoProps> = ({
+  size = 'md',
+  className = '',
+  showText = false,
+  businessName = 'Verdant'
+}) => {
+  const uniqueId = useId().replace(/:/g, '');
+  const sunCenterId = `sun-center-${uniqueId}`;
+  const sunbeamId = `sunbeam-${uniqueId}`;
+
+  const sizeClasses = {
+    xs: 'w-6 h-6',
+    sm: 'w-8 h-8',
+    md: 'w-10 h-10',
+    lg: 'w-14 h-14',
+    xl: 'w-20 h-20'
+  };
+
+  const containerSize = sizeClasses[size] || sizeClasses.md;
+
+  return (
+    <div className={`inline-flex items-center gap-2.5 ${className}`}>
+      {/* Circular Emblem Logo */}
+      <div
+        className={`relative ${containerSize} rounded-full overflow-hidden shrink-0 shadow-sm transition-transform hover:scale-105 select-none bg-white`}
+        title={businessName}
+      >
+        <svg
+          viewBox="0 0 200 200"
+          className="w-full h-full block"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            {/* Sun Center Radial Gradient */}
+            <radialGradient id={sunCenterId} cx="100" cy="106" r="34" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#FFDE59" />
+              <stop offset="40%" stopColor="#FFAE00" />
+              <stop offset="80%" stopColor="#FF7700" />
+              <stop offset="100%" stopColor="#F4511E" />
+            </radialGradient>
+
+            {/* Sunbeam Rays Radial Gradient */}
+            <radialGradient id={sunbeamId} cx="100" cy="106" r="88.5" gradientUnits="userSpaceOnUse">
+              <stop offset="28%" stopColor="#FFD54F" />
+              <stop offset="52%" stopColor="#FFA000" />
+              <stop offset="78%" stopColor="#FF5722" />
+              <stop offset="100%" stopColor="#E64A19" />
+            </radialGradient>
+          </defs>
+
+          {/* Crisp background disc */}
+          <circle cx="100" cy="100" r="90" fill="#FFFFFF" />
+
+          {/* 14 Symmetrical Radiant Sunbeams */}
+          <g id="sun-rays">
+            <path fill={`url(#${sunbeamId})`} d="M 58.60 103.11 L 11.72 99.83 A 88.5 88.5 0 0 1 14.22 84.23 L 59.78 95.79 A 41.5 41.5 0 0 0 58.60 103.11 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 60.20 94.25 L 15.12 80.95 A 88.5 88.5 0 0 1 20.93 66.25 L 62.92 87.36 A 41.5 41.5 0 0 0 60.20 94.25 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 63.66 85.95 L 22.51 63.25 A 88.5 88.5 0 0 1 31.35 50.15 L 67.81 79.81 A 41.5 41.5 0 0 0 63.66 85.95 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 68.84 78.59 L 33.54 47.56 A 88.5 88.5 0 0 1 44.99 36.67 L 74.21 73.49 A 41.5 41.5 0 0 0 68.84 78.59 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 75.47 72.52 L 47.70 34.61 A 88.5 88.5 0 0 1 61.22 26.45 L 81.82 68.70 A 41.5 41.5 0 0 0 75.47 72.52 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 83.26 68.02 L 64.31 25.02 A 88.5 88.5 0 0 1 79.28 19.96 L 90.28 65.65 A 41.5 41.5 0 0 0 83.26 68.02 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 91.84 65.31 L 82.59 19.23 A 88.5 88.5 0 0 1 98.30 17.52 L 99.20 64.51 A 41.5 41.5 0 0 0 91.84 65.31 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 100.80 64.51 L 101.70 17.52 A 88.5 88.5 0 0 1 117.41 19.23 L 108.16 65.31 A 41.5 41.5 0 0 0 100.80 64.51 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 109.72 65.65 L 120.72 19.96 A 88.5 88.5 0 0 1 135.69 25.02 L 116.74 68.02 A 41.5 41.5 0 0 0 109.72 65.65 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 118.18 68.70 L 138.78 26.45 A 88.5 88.5 0 0 1 152.30 34.61 L 124.53 72.52 A 41.5 41.5 0 0 0 118.18 68.70 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 125.79 73.49 L 155.01 36.67 A 88.5 88.5 0 0 1 166.46 47.56 L 131.16 78.59 A 41.5 41.5 0 0 0 125.79 73.49 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 132.19 79.81 L 168.65 50.15 A 88.5 88.5 0 0 1 177.49 63.25 L 136.34 85.95 A 41.5 41.5 0 0 0 132.19 79.81 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 137.08 87.36 L 179.07 66.25 A 88.5 88.5 0 0 1 184.88 80.95 L 139.80 94.25 A 41.5 41.5 0 0 0 137.08 87.36 Z" />
+            <path fill={`url(#${sunbeamId})`} d="M 140.22 95.79 L 185.78 84.23 A 88.5 88.5 0 0 1 188.28 99.83 L 141.40 103.11 A 41.5 41.5 0 0 0 140.22 95.79 Z" />
+          </g>
+
+          {/* Central Rising Semicircle Sun */}
+          <path fill={`url(#${sunCenterId})`} d="M 66 106 A 34 34 0 0 1 134 106 Z" />
+
+          {/* Terraced Rolling Hill Arcs (Right Side) */}
+          <g id="terraces">
+            {/* Band 1: Topmost fresh lime-green crest */}
+            <path fill="#6DBF38" d="M 87 122 C 105 111 135 109 186.2 122.5 A 88.5 88.5 0 0 1 188.4 130.5 C 140 118 108 120 89.8 129.5 Z" />
+
+            {/* Band 2: Bright green */}
+            <path fill="#52A82E" d="M 91.8 132.8 C 110 123.5 140 122.5 186.2 135 A 88.5 88.5 0 0 1 183.8 143.5 C 139 131.5 110 132.5 94.8 140.5 Z" />
+
+            {/* Band 3: Grass green */}
+            <path fill="#3B9227" d="M 96.6 143.8 C 113 135.5 141 135.5 181.2 147.5 A 88.5 88.5 0 0 1 175.2 155.5 C 137 143.5 113 144.5 99.6 150.8 Z" />
+
+            {/* Band 4: Forest green */}
+            <path fill="#2B7A21" d="M 101.2 153.2 C 115 146.5 141 146.5 171.5 159 A 88.5 88.5 0 0 1 162.2 166.5 C 134 154.5 115 155.5 103.6 160.2 Z" />
+
+            {/* Band 5: Deep emerald green */}
+            <path fill="#1E621C" d="M 104.5 162.2 C 116 157.5 137 157.5 156.8 168.8 A 88.5 88.5 0 0 1 145.2 174.8 C 129 165.5 115 165.5 105.8 167.8 Z" />
+
+            {/* Band 6: Midnight deep green bottom tip */}
+            <path fill="#134B17" d="M 106.2 169.8 C 115 166.5 129 166.5 140.2 174.5 A 88.5 88.5 0 0 1 127.5 179.8 C 119 175.5 111 174.5 106.8 174.8 Z" />
+          </g>
+
+          {/* Stylized Botanical Leaf (Left Side) */}
+          <g id="leaf">
+            {/* Leaf Body (Rich Deep Forest Green) */}
+            <path fill="#166534" d="M 11.5 108 A 88.5 88.5 0 0 0 103.5 177.5 C 98 152 82 126 11.5 108 Z" />
+
+            {/* Leaf Veins (Crisp White Lines) */}
+            {/* Main Center Vein / Spine */}
+            <path
+              stroke="#FFFFFF"
+              strokeWidth="3.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+              d="M 101.5 174.5 C 88 152 65 140 38 134"
+            />
+
+            {/* Top-Left Branching Vein */}
+            <path
+              stroke="#FFFFFF"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+              d="M 72 145 C 58 133 46 122 36 120"
+            />
+
+            {/* Bottom-Left Branching Vein */}
+            <path
+              stroke="#FFFFFF"
+              strokeWidth="2.3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+              d="M 85 159 C 72 153 62 155 52 163"
+            />
+          </g>
+        </svg>
+      </div>
+
+      {showText && (
+        <span className="font-serif font-bold tracking-tight text-emerald-950">
+          {businessName}
+        </span>
+      )}
+    </div>
+  );
+};

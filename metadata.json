@@ -1,0 +1,6 @@
+{
+  "name": "Verdant - Book Trusted Local Gardeners",
+  "description": "Book on-demand and scheduled gardening services, lawn care, hedge trimming, and seasonal clearance with vetted local professionals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
